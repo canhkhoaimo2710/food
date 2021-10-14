@@ -1,15 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SocialButton extends StatelessWidget {
-  const SocialButton({Key? key}) : super(key: key);
+class SocialButton extends StatefulWidget {
 
+
+
+
+
+  @override
+  State<SocialButton> createState() => _SocialButtonState();
+
+  const SocialButton({Key? key}) : super(key: key);
+}
+
+class _SocialButtonState extends State<SocialButton> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
         customButton("CONNECT WITH FACEBOOK","assets/logo_facebook.jpg",0xFF0000BB),
-        SizedBox(height: 20,),
+        const SizedBox(height: 10,),
         customButton("CONNECT WITH GOOGLE","assets/logo_google.jpg",0xFF0066FF)
       ],
     );
