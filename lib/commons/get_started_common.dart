@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 
-class GetStartedCommon extends StatelessWidget {
-  final String image;
-  final String title;
-  final String description;
+  //
+  // final String image;
+  // final String title;
+  // final String description;
 
 
-  const GetStartedCommon(this.image, this.title, this.description, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
-    return Padding(
+Padding getStartedCommon({required final String image, required final String title, required final String description}) {
+  return Padding(
       padding: const EdgeInsets.only(left: 10,right: 10,top: 40),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -35,4 +30,4 @@ class GetStartedCommon extends StatelessWidget {
       ),
     );
   }
-}
+

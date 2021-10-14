@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-class AppBarSignCustom extends StatelessWidget implements PreferredSizeWidget{
+class AppBarSignCustom extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final AppBar appBar;
 

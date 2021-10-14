@@ -82,11 +82,13 @@ class _SignInState extends State<SignIn> {
                   ],
                 ),
               ),
-              ElevatedButtonCustom(
-                "SIGN IN",
-                () {},
-                double.infinity,
+              elevatedButtonCustom(
+                title: "SIGN IN",
+                onPressed: () {},
+                sizeWidth: double.infinity,
               ),
+
+
               Padding(
                 padding: const EdgeInsets.only(bottom: 15,top: 30),
                 child: Row(

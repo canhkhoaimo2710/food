@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:food/pages/page.dart';
 import 'commons/common.dart';
@@ -13,17 +14,35 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _currentPage = 0;
+   final PageController _controller = PageController(initialPage: 0);
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 5), (Timer timer) {
+      if (_currentPage < 2) {
+        _currentPage++;
+      } else {
+        _currentPage = 0;
+      }
+
+      _controller.animateToPage(
+        _currentPage,
+        duration: const Duration(milliseconds: 350),
+        curve: Curves.easeIn,
+      );
+    });
+  }
+
+  _onChanged(int index) {
+    setState(() {
+      _currentPage = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    int _currentPage = 0;
-    PageController _controller = PageController();
-
-    _onChanged(int index) {
-      setState(() {
-        _currentPage = index;
-        print("current:$_currentPage " "index:$index");
-      });
-    }
 
     return SafeArea(
       child: Scaffold(
@@ -40,8 +59,11 @@ class _HomePageState extends State<HomePage> {
                   itemCount: getStarted.length,
                   onPageChanged: _onChanged,
                   itemBuilder: (context, index) {
-                    return GetStartedCommon(getStarted[index].image,
-                        getStarted[index].title, getStarted[index].description);
+                    return getStartedCommon(
+                      title: getStarted[index].title,
+                      description: getStarted[index].description,
+                      image:  getStarted[index].image,
+                    );
                   },
                 ),
               ),
@@ -52,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     children:
                         List<Widget>.generate(getStarted.length, (int index) {
                       return AnimatedContainer(
-                          duration: const Duration(milliseconds: 300),
+                          duration:  const Duration(milliseconds: 400),
                           height: 10,
                           width: (index == _currentPage) ? 30 : 10,
                           margin: const EdgeInsets.symmetric(
@@ -66,15 +88,14 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 80),
-                child: ElevatedButtonCustom(
-                  Strings.textButtonGetStarted,
-                  () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const SignIn()),
-                    );
-                  },
-                  double.infinity,
+                child: elevatedButtonCustom(title: Strings.textButtonGetStarted,
+                    sizeWidth: double.infinity,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const SignIn()),
+                      );
+                    },
                 ),
               ),
             ],
@@ -84,10 +105,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  onTap() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SignIn()),
-    );
-  }
+
 }
