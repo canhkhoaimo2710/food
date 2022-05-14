@@ -30,7 +30,7 @@ class _SignInState extends State<SignIn> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              titleAndDescriptionPage(title: Strings.titleSignIn,description: Strings.descriptionSignIn),
+              titleAndDescriptionPage(title: Strings.titleSignInPage,description: Strings.descriptionSignIn),
               const Padding(
                 padding:
                     EdgeInsets.only(top: 20, left: 0, right: 0, bottom: 10),
@@ -99,9 +99,7 @@ class _SignInState extends State<SignIn> {
               ),
               elevatedButtonCustom(
                 title: "SIGN IN",
-                onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));
-                },
+                onPressed: () {},
                 sizeWidth: double.infinity,
               ),
 
@@ -116,7 +114,7 @@ class _SignInState extends State<SignIn> {
                       style: TextStyle(fontSize: 14),
                     ),
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));},
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(fontSize: 14, color: Colors.blue),

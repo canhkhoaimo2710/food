@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 
-  //
-  // final String image;
-  // final String title;
-  // final String description;
+
 
 
 Padding getStartedCommon({required final String image, required final String title, required final String description}) {
@@ -15,7 +12,7 @@ Padding getStartedCommon({required final String image, required final String tit
         children:<Widget> [
           Padding(
             padding: const EdgeInsets.only(left: 30,right: 30),
-            child: Image.asset(image,fit: BoxFit.contain,height: 350,width: 350,),
+            child: Image.asset(image,fit: BoxFit.contain,height: 300,width: 350),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 20,bottom: 25),
