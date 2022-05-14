@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-class SignInProvider with ChangeNotifier{
+class SignInProvider with ChangeNotifier {
   bool obscure = true;
 
   void showPass() {

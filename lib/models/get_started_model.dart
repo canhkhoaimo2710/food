@@ -1,9 +1,6 @@
-
-
-
 import 'package:food/resources/resource.dart';
 
-class GetStartedModel{
+class GetStartedModel {
   String image;
   String title;
   String description;
@@ -18,7 +15,8 @@ List<GetStartedModel> getStarted = getStartedData
         item["title"].toString(),
         item["description"].toString(),
       ),
-    ).toList();
+    )
+    .toList();
 
 var getStartedData = [
   {

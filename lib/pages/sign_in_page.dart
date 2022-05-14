@@ -16,21 +16,24 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        appBar: AppBarSignCustom(Strings.titleSignIn,AppBar(),),
+        appBar: AppBarSignCustom(
+          Strings.titleSignIn,
+          AppBar(),
+        ),
         body: Padding(
           padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              titleAndDescriptionPage(title: Strings.titleSignInPage,description: Strings.descriptionSignIn),
+              titleAndDescriptionPage(
+                  title: Strings.titleSignInPage,
+                  description: Strings.descriptionSignIn),
               const Padding(
                 padding:
                     EdgeInsets.only(top: 20, left: 0, right: 0, bottom: 10),
@@ -44,39 +47,42 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 30, left: 0, right: 0, bottom: 20),
+                padding: const EdgeInsets.only(
+                    top: 30, left: 0, right: 0, bottom: 20),
                 child: ChangeNotifierProvider<SignInProvider>(
                   create: (context) => SignInProvider(),
-                  child: Consumer<SignInProvider>(builder: (context, signInProvider, child) {
-                   return Stack(
-                      alignment: AlignmentDirectional.centerEnd,
-                      children: [
-                        TextField(
-                          obscureText: signInProvider.obscure,
-                          style: const TextStyle(fontSize: 20),
-                          decoration: const InputDecoration(
-                            labelText: "Password",
-                            labelStyle: TextStyle(color: Colors.black54, fontSize: 18),
-                            hintText: 'Your password',
+                  child: Consumer<SignInProvider>(
+                    builder: (context, signInProvider, child) {
+                      return Stack(
+                        alignment: AlignmentDirectional.centerEnd,
+                        children: [
+                          TextField(
+                            obscureText: signInProvider.obscure,
+                            style: const TextStyle(fontSize: 20),
+                            decoration: const InputDecoration(
+                              labelText: "Password",
+                              labelStyle: TextStyle(
+                                  color: Colors.black54, fontSize: 18),
+                              hintText: 'Your password',
+                            ),
                           ),
-                        ),
-                        IconButton(
-                          icon: signInProvider.obscure
-                              ? const FaIcon(
-                            FontAwesomeIcons.eye,
-                            size: 20,
-                          )
-                              : const FaIcon(
-                            FontAwesomeIcons.eyeSlash,
-                            size: 20,
+                          IconButton(
+                            icon: signInProvider.obscure
+                                ? const FaIcon(
+                                    FontAwesomeIcons.eye,
+                                    size: 20,
+                                  )
+                                : const FaIcon(
+                                    FontAwesomeIcons.eyeSlash,
+                                    size: 20,
+                                  ),
+                            onPressed: () {
+                              signInProvider.showPass();
+                            },
                           ),
-                          onPressed: () {
-                            signInProvider.showPass();
-                          },
-                        ),
-                      ],
-                    );
-                  },
+                        ],
+                      );
+                    },
                   ),
                 ),
               ),
@@ -102,19 +108,23 @@ class _SignInState extends State<SignIn> {
                 onPressed: () {},
                 sizeWidth: double.infinity,
               ),
-
-
               Padding(
-                padding: const EdgeInsets.only(bottom: 15,top: 15),
+                padding: const EdgeInsets.only(bottom: 15, top: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children:  <Widget> [
+                  children: <Widget>[
                     const Text(
                       "Do you have a account ? ",
                       style: TextStyle(fontSize: 14),
                     ),
                     GestureDetector(
-                      onTap: (){ Navigator.push(context, MaterialPageRoute(builder: (context) => const SignUpPage(),));},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignUpPage(),
+                            ));
+                      },
                       child: const Text(
                         "Sign Up",
                         style: TextStyle(fontSize: 14, color: Colors.blue),
@@ -132,9 +142,7 @@ class _SignInState extends State<SignIn> {
                   ),
                 ),
               ),
-
               const SocialButton(),
-
             ],
           ),
         ),

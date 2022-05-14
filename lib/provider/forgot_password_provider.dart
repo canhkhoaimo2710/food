@@ -3,15 +3,12 @@ import 'package:flutter/foundation.dart';
 
 class ForgotPasswordProvider with ChangeNotifier {
   var textController = TextEditingController();
- String myText =""  ;
+  String myText = "";
 
- getText(String text){
-   myText = text;
-   notifyListeners();
- }
-
-
-
+  getText(String text) {
+    myText = text;
+    notifyListeners();
+  }
 
   @override
   void dispose() {

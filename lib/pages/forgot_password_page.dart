@@ -24,18 +24,21 @@ class ForgotPasswordPage extends StatelessWidget {
                 title: "Forgot password",
                 description:
                     "Enter your email address and we will send you a reset instructions."),
-             Padding(
-              padding: const EdgeInsets.only(top: 20, left: 0, right: 0, bottom: 30),
+            Padding(
+              padding:
+                  const EdgeInsets.only(top: 20, left: 0, right: 0, bottom: 30),
               child: ChangeNotifierProvider<ForgotPasswordProvider>(
                 create: (context) => ForgotPasswordProvider(),
                 child: Consumer<ForgotPasswordProvider>(
-                  builder: (context, forgotPasswordProvider, child) =>TextField(
-
-                    onChanged:  (newText)=>forgotPasswordProvider.myText = newText,
+                  builder: (context, forgotPasswordProvider, child) =>
+                      TextField(
+                    onChanged: (newText) =>
+                        forgotPasswordProvider.myText = newText,
                     style: const TextStyle(fontSize: 18),
                     decoration: const InputDecoration(
                       labelText: "Email Address",
-                      labelStyle: TextStyle(color: Colors.black54, fontSize: 18),
+                      labelStyle:
+                          TextStyle(color: Colors.black54, fontSize: 18),
                       hintText: 'Your email',
                     ),
                   ),
@@ -45,7 +48,11 @@ class ForgotPasswordPage extends StatelessWidget {
             elevatedButtonCustom(
                 title: "Reset Password",
                 onPressed: () {
-                  Navigator.push(context,MaterialPageRoute(builder: (context) => const ForgotPasswordSuccess(),));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordSuccess(),
+                      ));
                 },
                 sizeWidth: double.infinity),
           ],

@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
       child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20),
-          child:ChangeNotifierProvider<HomePageProvider>(
+          child: ChangeNotifierProvider<HomePageProvider>(
             create: (context) => HomePageProvider(),
             child: Consumer<HomePageProvider>(
               builder: (context, homePageProvider, child) => Column(
@@ -60,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                       scrollDirection: Axis.horizontal,
                       controller: homePageProvider.controller,
                       itemCount: getStarted.length,
-                      onPageChanged:homePageProvider.onChanged,
+                      onPageChanged: homePageProvider.onChanged,
                       itemBuilder: (context, index) {
                         return getStartedCommon(
                           title: getStarted[index].title,
@@ -74,12 +74,14 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(bottom: 50),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children:
-                            List<Widget>.generate(getStarted.length, (int index) {
+                        children: List<Widget>.generate(getStarted.length,
+                            (int index) {
                           return AnimatedContainer(
                               duration: const Duration(milliseconds: 400),
                               height: 10,
-                              width: (index == homePageProvider.currentPage) ? 30 : 10,
+                              width: (index == homePageProvider.currentPage)
+                                  ? 30
+                                  : 10,
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 5, vertical: 30),
                               decoration: BoxDecoration(
@@ -89,7 +91,6 @@ class _HomePageState extends State<HomePage> {
                                       : Colors.blue.withOpacity(0.5)));
                         })),
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(bottom: 80),
                     child: elevatedButtonCustom(
@@ -98,7 +99,8 @@ class _HomePageState extends State<HomePage> {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignIn()),
+                          MaterialPageRoute(
+                              builder: (context) => const SignIn()),
                         );
                       },
                     ),
