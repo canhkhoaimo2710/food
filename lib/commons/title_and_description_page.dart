@@ -6,8 +6,12 @@ Column titleAndDescriptionPage(
     crossAxisAlignment: CrossAxisAlignment.start,
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
-      Text(title, style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 25,color: Colors.lightBlue)),
-       Padding(
+      Text(title,
+          style: const TextStyle(
+              fontWeight: FontWeight.w500,
+              fontSize: 25,
+              color: Colors.lightBlue)),
+      Padding(
         padding: const EdgeInsets.only(right: 30, top: 15, bottom: 10),
         child: Text(description,
             style: const TextStyle(color: Colors.black54, fontSize: 18)),
