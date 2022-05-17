@@ -105,7 +105,7 @@ class _SignInState extends State<SignIn> {
               ),
               elevatedButtonCustom(
                 title: "SIGN IN",
-                onPressed: () {},
+                onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => const MainPage()));},
                 sizeWidth: double.infinity,
               ),
               Padding(
@@ -119,11 +119,7 @@ class _SignInState extends State<SignIn> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const SignUpPage(),
-                            ));
+                        Navigator.pushNamed(context, "/signIn");
                       },
                       child: const Text(
                         "Sign Up",

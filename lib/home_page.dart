@@ -100,7 +100,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SignIn()),
+                              builder: (context) => const MainPage()),
                         );
                       },
                     ),
