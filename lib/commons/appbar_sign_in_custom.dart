@@ -16,7 +16,7 @@ class AppBarSignCustom extends StatelessWidget implements PreferredSizeWidget {
       ),
       shadowColor: Colors.white.withOpacity(0.01),
       centerTitle: true,
-      leading:IconButton(
+      leading: IconButton(
         icon: const Icon(Icons.arrow_back_ios_outlined),
         color: Colors.black,
         onPressed: () => Navigator.pop(

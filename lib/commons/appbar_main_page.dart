@@ -7,8 +7,18 @@ class AppBarMainPage extends StatelessWidget implements PreferredSizeWidget {
 
   const AppBarMainPage(this.title, this.appBar, {Key? key}) : super(key: key);
 
+
   @override
   Widget build(BuildContext context) {
+    var currentFocus;
+   void unfocus() {
+     FocusScope.of(context).unfocus();
+      // currentFocus = FocusScope.of(context);
+      // if (!currentFocus.hasPrimaryFocus) {
+      //   currentFocus.unfocus();
+      // }
+     print("abc");
+    }
     return AppBar(
       backgroundColor: Colors.white,
       title: Text(
@@ -17,18 +27,22 @@ class AppBarMainPage extends StatelessWidget implements PreferredSizeWidget {
       ),
       shadowColor: Colors.white.withOpacity(0.01),
       centerTitle: true,
-      actions: [IconButton(
+      actions: [
+        IconButton(
+          icon: const Icon(Icons.search),
+          color: Colors.black,
+          onPressed: unfocus,
+        ),
+
+      ],
+      leading: IconButton(
         icon: const Icon(Icons.account_circle_rounded),
         color: Colors.black,
-        onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const SignIn(),)),
-      )],
-
-      leading:IconButton(
-        icon: const Icon(Icons.arrow_back_ios_outlined),
-        color: Colors.black,
-        onPressed: () => Navigator.pop(
-          context,
-        ),
+        onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SignIn(),
+            )),
       ),
     );
   }

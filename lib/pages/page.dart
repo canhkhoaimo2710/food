@@ -4,3 +4,7 @@ export 'sign_up_page.dart';
 export 'main_page.dart';
 export 'forgot_password_success.dart';
 export 'nav_page.dart';
+export 'main_page.dart';
+export 'more_page.dart';
+export 'matches_page.dart';
+export 'video_page.dart';
